@@ -12,6 +12,6 @@
 		<artifact type="pom" ext="pom" conf="default"/>
 	</publications>
 	<dependencies>
-		<dependency org="joist" name="joist-util" rev="2010062602" conf="default->default"/>
+		<dependency org="joist" name="joist-util" rev="2010063001" conf="default->default,sources"/>
 	</dependencies>
 </ivy-module>
