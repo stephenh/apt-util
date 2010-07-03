@@ -19,7 +19,8 @@ public class Util {
 			w.write(g.toCode());
 			w.close();
 		} catch (IOException io) {
-			env.getMessager().printMessage(Kind.ERROR, io.getMessage());
+			Element hint = originals.length > 0 ? originals[0] : null;
+			env.getMessager().printMessage(Kind.ERROR, io.getMessage(), hint);
 		}
 	}
 
