@@ -50,7 +50,7 @@ public class PropUtil {
 
 	public static void addToString(GClass gclass, List<Prop> properties) {
 		GMethod tos = gclass.getMethod("toString").addAnnotation("@Override").returnType("String");
-		tos.body.line("return \"{}[\"", gclass.getSimpleClassNameWithoutGeneric());
+		tos.body.line("return \"{}[\"", gclass.getSimpleName());
 		int i = 0;
 		for (Prop p : properties) {
 			if (p.type.endsWith("[]")) {
@@ -75,8 +75,8 @@ public class PropUtil {
 			equals.body.line("    return true;");
 		} else {
 			equals.body.line("    {} o = ({}) other;",//
-				gclass.getSimpleClassNameWithoutGeneric() + generics.vars,//
-				gclass.getSimpleClassNameWithoutGeneric() + generics.vars);
+				gclass.getSimpleName() + generics.vars,//
+				gclass.getSimpleName() + generics.vars);
 			equals.body.line("    return true"); // leave open
 			for (Prop p : properties) {
 				if (PrimitivesUtil.isPrimitive(p.type)) {

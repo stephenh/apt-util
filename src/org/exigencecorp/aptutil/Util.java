@@ -14,7 +14,7 @@ public class Util {
 
 	public static void saveCode(ProcessingEnvironment env, GClass g, Element... originals) {
 		try {
-			JavaFileObject jfo = env.getFiler().createSourceFile(g.getFullClassNameWithoutGeneric(), originals);
+			JavaFileObject jfo = env.getFiler().createSourceFile(g.getFullName(), originals);
 			Writer w = jfo.openWriter();
 			w.write(g.toCode());
 			w.close();
